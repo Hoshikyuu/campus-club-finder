@@ -1,22 +1,24 @@
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
 import Home from './pages/Home';
-import ClubList from './pages/ClubList'; // Assuming this page exists
-import ClubDetail from './pages/ClubDetail'; // Assuming this page exists
-import About from './pages/About'; // Assuming this page exists
-import NotFound from './pages/NotFound'; // Assuming this page exists
+import Clubs from './pages/Clubs';
+import ClubDetail from './pages/ClubDetail';
+import About from './pages/About';
+import NotFound from './pages/NotFound';
 
-const App = () => {
+function App() {
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/clubs" element={<ClubList />} />
-        <Route path="/clubs/:id" element={<ClubDetail />} />
+        <Route path="/clubs" element={<Clubs />} />
+        <Route path="/clubs/:clubId" element={<ClubDetail />} />
         <Route path="/about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
